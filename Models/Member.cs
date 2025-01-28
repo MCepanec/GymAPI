@@ -6,5 +6,5 @@ namespace GymAPI.Models;
         public string Email { get; set; } = default!;
         public DateTime DateOfBirth { get; set; }
         public bool MembershipStatus { get; set; }
-
+        public ICollection<WorkoutLog> WorkoutLogs { get; set; }
     }

@@ -13,4 +13,7 @@ using GymAPI.Models;
         }
 
         public DbSet<GymAPI.Models.Member> Member { get; set; } = default!;
+
+public DbSet<GymAPI.Models.WorkoutLog> WorkoutLog { get; set; } = default!;
+
     }
