@@ -7,4 +7,5 @@ namespace GymAPI.Models;
         public DateTime WorkoutDate { get; set; }
         public string Exercise { get; set; } = default!;
         public int Duration { get; set; }
+        public Member? Member { get; set; }
     }

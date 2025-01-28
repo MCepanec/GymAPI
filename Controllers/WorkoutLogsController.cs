@@ -9,7 +9,7 @@ using GymAPI.Models;
 
 namespace GymAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/members/{memberId}/workoutlogs")]
     [ApiController]
     public class WorkoutLogsController : ControllerBase
     {

@@ -14,6 +14,16 @@ using GymAPI.Models;
 
         public DbSet<GymAPI.Models.Member> Member { get; set; } = default!;
 
-public DbSet<GymAPI.Models.WorkoutLog> WorkoutLog { get; set; } = default!;
+        public DbSet<GymAPI.Models.WorkoutLog> WorkoutLog { get; set; } = default!;
 
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<WorkoutLog>()
+            .HasOne(w => w.Member)
+            .WithMany(m => m.WorkoutLogs)
+            .HasForeignKey(w => w.MemberId);
+    }
     }
