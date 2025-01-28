@@ -41,6 +41,16 @@ namespace GymAPI.Controllers
             return workoutLog;
         }
 
+        [HttpGet("filter by duration")]
+        public async Task<ActionResult<IEnumerable<WorkoutLog>>> FilterWorkoutLogs([FromQuery] int duration = 60)
+        {
+            var workoutLogs = await _context.WorkoutLog
+                .Where(w => w.Duration > duration)
+                .ToListAsync();
+
+            return Ok(workoutLogs);
+        }
+
         // PUT: api/WorkoutLogs/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
